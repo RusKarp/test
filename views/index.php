@@ -15,14 +15,9 @@
 </head>
 <body>
 <?php
-/*include '../app/DB.php';
+include_once
 
-
-$q = new DB;
-$q->A();
-
-
-	*/?>
+?>
 
 
 
@@ -31,7 +26,7 @@ $q->A();
         <div class="col-md-8">
             <div class="card">
 
-
+Test
 
             </div>
         </div>
@@ -39,22 +34,7 @@ $q->A();
 </div>
 
 
-<form action="" method="post">
-    <label>Заголовок</label><br />
-    <input type="text" name="blog_title"
-           value="<?= ( isset( $a_data['blog_title'] ) ? htmlspecialchars( $a_data['blog_title'] ) : '' ) ?>" /><br />
-    <?= ( ( isset( $a_error['blog_title'] ) ) ? '<span style="color: red">' . $a_error['blog_title'] . '</span><br />' : '' ) ?>
 
-    <label>Текст записи</label><br />
-    <textarea name="blog_text"><?= ( isset( $a_data['blog_text'] ) ? htmlspecialchars( $a_data['blog_text'] ) : '' ) ?></textarea><br />
-    <?= ( ( isset( $a_error['blog_text'] ) ) ? '<span style="color: red">' . $a_error['blog_text'] . '</span><br />' : '' ) ?>
-
-    <?= ( ( isset( $a_error['token'] ) ) ? '<span style="color: red">' . $a_error['token'] . '</span><br />' : '' ) ?>
-
-    <input type="hidden" name="token" value="<?= session_id(  ) ?>" />
-
-    <input type="submit" name="submit_edit" value="Редактировать" />
-</form>
 
 
 
