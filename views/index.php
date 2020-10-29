@@ -31,25 +31,25 @@ include_once '../app/bootstrap.php';
                 <form class="form-signin" action="../app/add.php" method="post">
 
 
-                    <input class="form-control" placeholder="Имя" type="text" name="name"
+                    <input size="40" placeholder="Имя" type="text" name="name"
                            value=""/><br/><br/><!--&nbsp;-->
 
-                    <input class="form-control" placeholder="Фамилия" type="text" name="last_name"
+                    <input size="40" placeholder="Фамилия" type="text" name="last_name"
                            value=""/><br/><br/>
 
-                    <input class="form-control" type="text" placeholder="Номер телефона" minlength="13" maxlength="13" name="phone"
+                    <input size="40" type="text" placeholder="Номер телефона" minlength="13" maxlength="13" name="phone"
                            value=""/><br/><br/>
 
-                    <input class="form-control" type="text" name="age" placeholder="Возрост"
+                    <input size="40" type="text" name="age" placeholder="Возрост"
                            value=""/><br/><br/>
 
-                    <input class="form-control" type="text" name="gender" placeholder="Вкажите пол"
+                    <input size="40" type="text" name="gender" placeholder="Вкажите пол"
                            value=""/><br/><br/>
 
-                    <input class="form-control" type="text" name="group" placeholder="Група"
+                    <input size="40" type="text" name="group" placeholder="Група"
                            value=""/><br/><br/>
 
-                    <input class="form-control" type="text" name="faculty" placeholder="Факультет"
+                    <input size="40" type="text" name="faculty" placeholder="Факультет"
                            value=""/><br/><br/>
 
 
