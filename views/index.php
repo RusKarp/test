@@ -1,7 +1,12 @@
 <?php
-//подключяймы файл
+//подключаймы файл
 include_once '../app/bootstrap.php';
 
+//выборака с базы даных
+$sql = 'SELECT * FROM `users`';
+$objPdo = $pdo->prepare($sql);
+$objPdo->execute();
+$data = $objPdo->fetchAll();
 
 
 ?>
@@ -55,7 +60,7 @@ include_once '../app/bootstrap.php';
 
                     <input  type="hidden" name="token" value="<?= session_id() ?>"/>
 
-                    <input type="submit" class="btn btn-lg btn-primary btn-block" name="submit_add" value="Добавить"/>
+                    <input type="submit"  name="submit_add" value="Добавить"/>
 
 
                 </form>
@@ -66,11 +71,46 @@ include_once '../app/bootstrap.php';
 </div>
 <br/>
 
+<div class="container">
+<?php
+
+//Вывод даных
+foreach ($data as $arr) {
+
+    echo '<div>';
+
+    echo "<span>   {$arr['name']}   &nbsp;&nbsp;</span>";
+    echo "<span>   {$arr['last_name']}   &nbsp;&nbsp;</span>";
+    echo "<span>  {$arr['phone']}   &nbsp;&nbsp;</span>";
+    echo "<span>   {$arr['age']}  &nbsp;&nbsp;</span>";
+    echo "<span>  {$arr['gender']}  &nbsp;&nbsp;</span>";
+    echo "<span>   {$arr['group']}  &nbsp;&nbsp;</span>";
+    echo "<span>   {$arr['faculty']}  &nbsp;&nbsp;</span>";
+
+    echo '</div><br />';
+
+    ?>
+    <!-- Форма для Редактирования-->
+    <div>
+        <form action="../app/edit.php?<?= "id=" . $arr['id'] ?>" method="post">
+            <input type="hidden" name="token" value="<?= session_id() ?>"/>
+            <input type="submit" name="edit" value="Редактировать"/>
+        </form>
+    </div>
+    <br/>
+    <!-- Форма для Удаления-->
+    <div>
+        <form class="form-signin" action="../app/delete.php?<?= "id=" . $arr['id'] ?>" method="post">
+            <input type="hidden" name="token" value="<?= session_id() ?>"/>
+            <input type="submit" name="delete" value="Удалить"/>
+        </form>
+    </div>
+
+    <hr/>
 
 
-
-
-
+<?php } ?>
+</div>
 </body>
 </html>
 
