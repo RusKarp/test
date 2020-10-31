@@ -52,7 +52,6 @@ if (isset($_POST['submit_edit'])) {
          `group`=:group,
          `faculty`=:faculty WHERE `id` = {$data['id']}";
 
-        $objPdo = $pdo->prepare($sql);
 
         $params = [
             'name' => $data['name'],
@@ -64,8 +63,9 @@ if (isset($_POST['submit_edit'])) {
             'faculty' => $data['faculty']
         ];
 
+        $Object = new \app\DB;
+        $data = $Object->query($sql,$params);
 
-        $objPdo->execute($params);
 
         //Редирект на файл index.php
         header('location: ..\views\index.php');
@@ -85,9 +85,9 @@ if (isset($_GET)) {
     }
 
     $sql = "SELECT * FROM `users` WHERE `id` = {$data['id']}";
-    $objPdo = $pdo->prepare($sql);
-    $objPdo->execute();
-    $data = $objPdo;
+    $Object = new \app\DB;
+    $data = $Object->query($sql);
+
 
 }
 
