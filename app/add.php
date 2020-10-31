@@ -35,7 +35,6 @@ if (isset($_POST['submit_add'])) {
         //Добаление даных в базу даных
 
         $sql = "INSERT INTO `users` (`name`, `last_name`, `gender`, `phone`, `age`, `group`, `faculty`) VALUES (:name, :last_name, :gender, :phone, :age, :group, :faculty)";
-        $objPdo = $pdo->prepare($sql);
 
         $params = [
             'name' => $data['name'],
@@ -47,7 +46,10 @@ if (isset($_POST['submit_add'])) {
             'faculty' => $data['faculty']
         ];
 
-        $objPdo->execute($params);
+        $Object = new \app\DB;
+        $Object->query($sql,$params);
+
+
 
         //Редирект на файл index.php
         header('location: ..\views\index.php');
