@@ -6,7 +6,7 @@ if ($_GET == []) {
 
 if (isset($_POST['delete'])) {
     $data = $error = [];
-//Валидацыя
+//Валидацыя id
     $data['id'] = (isset($_GET['id']) and is_string($_GET['id']) and ctype_digit($_GET['id']))
         ? intval($_GET['id'])
         : false;
@@ -17,8 +17,11 @@ if (isset($_POST['delete'])) {
 
 // удаление даных
     $sql = "DELETE FROM `users` WHERE `id`={$data['id']}";
-    $objPdo = $pdo->prepare($sql);
-    $objPdo->execute();
+
+    $Object = new \app\DB;
+    $data = $Object->query($sql);
+
+//Редирект на ..\views\index.php
     header('Location: ..\views\index.php');
 
 }
