@@ -4,9 +4,8 @@ include_once '../app/bootstrap.php';
 
 //выборака с базы даных
 $sql = 'SELECT * FROM `users`';
-$objPdo = $pdo->prepare($sql);
-$objPdo->execute();
-$data = $objPdo->fetchAll();
+$Object = new \app\DB;
+$data = $Object->query($sql);
 
 
 ?>
